@@ -1,0 +1,33 @@
+# NixOS / Окружение
+.direnv/
+result
+result-*
+flake.nix
+flake.lock
+
+# IDE и Редакторы (Zed, VS Code, PyCharm)
+.zed/
+.vscode/
+.idea/
+
+# Секреты (Ключи от LLM API)
+.env
+.env.*
+
+# Внутренний кэш и скрытые папки ИИ-агентов (библиотеки, логи, базы данных)
+.autogen/
+.crewai/
+.chroma/
+.cache/
+.agent_storage/
+
+# Автономные ИИ-кодеры (OpenCode, OpenDevin, Aider и др.)
+.aider*
+.open_devin/
+.opencode/
+
+# Python
+__pycache__/
+.venv/
+venv/
+*.log
