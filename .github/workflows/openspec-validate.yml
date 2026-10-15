@@ -1,0 +1,42 @@
+name: openspec-validate
+
+on:
+  pull_request:
+    branches: [develop, main]
+
+jobs:
+  openspec-validate:
+    name: openspec-validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Detect changed OpenSpec changes
+        id: changed
+        run: |
+          set -euo pipefail
+          base="${{ github.event.pull_request.base.sha }}"
+          changes=$(git diff --name-only "$base...HEAD" \
+            | awk -F/ '/^openspec\/changes\// && $3 != "archive" {print $3}' \
+            | sort -u)
+          {
+            echo "changes<<EOF"
+            echo "$changes"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Validate changed changes
+        if: steps.changed.outputs.changes != ''
+        run: |
+          set -euo pipefail
+          while IFS= read -r name; do
+            [ -z "$name" ] && continue
+            echo "Validating $name"
+            npx --yes @fission-ai/openspec@1.14.2 validate "$name" --strict
+          done <<< "${{ steps.changed.outputs.changes }}"
+      - name: Nothing to validate
+        if: steps.changed.outputs.changes == ''
+        run: echo "PR does not touch any OpenSpec change."

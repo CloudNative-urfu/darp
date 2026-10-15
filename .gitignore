@@ -1,5 +1,8 @@
 # NixOS / Окружение
 .direnv/
+.envrc
+.devenv/
+.devenv.flake.nix
 result
 result-*
 flake.nix
@@ -25,6 +28,11 @@ flake.lock
 .aider*
 .open_devin/
 .opencode/
+
+# Локальные файлы AI-инструментов (сгенерированные команды/скиллы)
+.agents/
+.claude/
+.cursor/
 
 # Python
 __pycache__/

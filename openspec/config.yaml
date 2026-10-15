@@ -1,0 +1,35 @@
+schema: spec-driven
+
+context: |
+  DARP (Defense, Attack Research Platform) — исследовательский полигон для ИИ-агентов
+  в кибербезопасности. Изолированная gym-подобная среда, атакующая сторона (Kali Linux),
+  защитная сторона (open-source мониторинг: Wazuh/ELK), переключаемые LLM (локальные и
+  облачные) с контролем токенов, дообучение LLM и защитный LoRA-адаптер (PEFT).
+  Стек: Python, LangChain/AutoGen, Docker, Gymnasium, Hugging Face, PEFT.
+  Полное описание — docs/description.md.
+
+  Инфраструктурные правила репозитория (обязательны для артефактов):
+  - Каждый change привязан к GitHub issue в CloudNative-urfu/darp; имя change —
+    "<номер-issue>-<slug>". Issue лежит на доске CloudNative-urfu/projects/1.
+  - Спеки коммитятся напрямую в ветку develop; main — только через PR из develop.
+  - Язык артефактов — русский, технические термины — английские.
+
+rules:
+  proposal:
+    - Указывать ссылку на issue (#N) и её URL.
+    - Явно описывать out of scope.
+  specs:
+    - Один сценарий на проверяемое поведение.
+  tasks:
+    - Каждая задача — чекбокс вида "- [ ] 1.1 ...".
+    - Задачи атомарные и проверяемые.
+  design:
+    - Учитывать влияние на изоляцию полигона и на переключение LLM.
+
+operations:
+  apply:
+    guidance:
+      - Работать в ветке от develop, PR с "Closes #<issue>".
+  archive:
+    guidance:
+      - Архивировать change после мержа реализации в develop.
