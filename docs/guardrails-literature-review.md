@@ -376,6 +376,7 @@ collection/release/deployment/production [2605.01644].
 - первый DoS на гвардрейлах;
 - первую модель эскалации;
 - SOTA-детектор;
+- cross-lingual переносимость: эмпирика English-only;
 - универсальность за пределами выбранного процесса и корпуса.
 
 ## 6. Что литература меняет в дизайне
@@ -526,4 +527,5 @@ collection/release/deployment/production [2605.01644].
 (доступность), Detection-to-Decision (эскалация), Oversight Capacity (ёмкость),
 RAGWarrant/AGO (governance) — но не соединяют их. Это соединение и есть наш
 research gap; его нужно зафиксировать в статье и в pre-registration до основных
-прогонов.
+прогонов. Эмпирическая часть ограничена English-only; перенос на другие языки —
+отдельный future work, а не подразумеваемое свойство результата.

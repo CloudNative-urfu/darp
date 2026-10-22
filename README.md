@@ -8,6 +8,7 @@
 
 ## Документация
 
+- Общий вид полигона и исследования: `docs/guardrails-research-design.md`
 - Текущее направление исследования: `docs/guardrails-business-value.md`
 - Обзор литературы и research gap: `docs/guardrails-literature-review.md`
 - Риски и стратегия уникальности: `docs/guardrails-research-risks.md`
