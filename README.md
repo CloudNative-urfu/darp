@@ -9,6 +9,8 @@
 ## Документация
 
 - Текущее направление исследования: `docs/guardrails-business-value.md`
+- Обзор литературы и research gap: `docs/guardrails-literature-review.md`
+- Риски и стратегия уникальности: `docs/guardrails-research-risks.md`
 - Исходная карточка проекта (история): `docs/description.md`
 - Как работать (для команды): `CONTRIBUTING.md`
 - Правила для ИИ-агентов: `AGENTS.md`
