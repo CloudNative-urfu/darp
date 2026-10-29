@@ -10,8 +10,8 @@
 
 ## 0. Модель веток
 
-- `develop` — интеграционная ветка (default). Сюда merge'ятся PR с изменениями.
-- `main` — релизная ветка, защищена. Напрямую пушить нельзя; изменения только через PR из `develop`.
+- `research` — интеграционная ветка (default). Сюда merge'ятся PR с изменениями.
+- `main` — релизная ветка, защищена. Напрямую пушить нельзя; изменения только через PR из `research`.
 
 ## 1. Главное правило: issue ↔ доска
 
@@ -81,15 +81,18 @@ gh project item-edit --id "$ITEM_ID" --project-id "$PROJECT_ID" \
 
 ### 3. Реализация
 
-- Ветка от `develop`: `feat/<номер-issue>-<slug>` (либо `fix/`, `docs/`, `chore/`).
+- Ветка от `research`: `feat/<номер-issue>-<slug>` (либо `fix/`, `docs/`, `chore/`).
+  Задача делается только в ветке; прямой пуш в `research` в контексте задачи запрещён
+  (исключение — по явному запросу человека).
 - Статус issue на доске → `In progress`.
 - Коммиты — Conventional Commits (см. ниже).
-- PR **в `develop`**, squash-merge; в описании — `Closes #<номер-issue>`, статус → `In review`.
+- PR **в `research`**, squash-merge; в описании — `Closes #<номер-issue>`, статус → `In review`.
+  С `Closes #N` PR свяжется с issue и сам появится у него на доске («Linked pull requests»).
 - Блокирующая проверка CI: `commit-msg`.
 
 ### 4. Завершение
 
-После мержа PR в `develop`:
+После мержа PR в `research`:
 
 - Статус issue на доске → `Done` (issue закрывается сам по `Closes #N`).
 
@@ -105,7 +108,7 @@ Issue добавляется на доску **DARP Board** (`projectV2(number: 
 | Backlog | `f75ad846` | issue создан |
 | In progress | `47fc9ee4` | идёт реализация |
 | In review | `df73e18b` | открыт PR |
-| Done | `98236657` | смержено в `develop` |
+| Done | `98236657` | смержено в `research` |
 
 ## Соглашение о коммитах
 
@@ -126,5 +129,7 @@ Conventional Commits. Формат `<type>(<scope>): <description>`.
 - Создавать issue без исполнителя из команды.
 - Оставлять issue вне доски `CloudNative-urfu/projects/1`.
 - Пушить напрямую в `main`.
+- Пушить напрямую в `research` в контексте задачи — только ветка под задачу + PR
+  (исключение — по явному запросу человека).
 - Коммитить и пушить без явного запроса человека.
 - Читать и изменять файлы секретов (`.env`, `secrets/`, ключи, токены, сертификаты).

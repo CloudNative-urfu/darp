@@ -2,9 +2,9 @@ name: commit-msg
 
 on:
   pull_request:
-    branches: [develop, main]
+    branches: [research, main]
   push:
-    branches: [develop]
+    branches: [research]
 
 jobs:
   commit-msg:
