@@ -1,10 +1,10 @@
-# Как работать с проектом DARP
+# Как работать с проектом DVARP
 
 Гайд для участников команды. Описание проекта — `README.md`; рамка исследования —
 `docs/guardrails-as-a-vector-of-attack.md`.
 Правила для ИИ-агентов — `AGENTS.md`.
 
-- Репозиторий: `CloudNative-urfu/darp`
+- Репозиторий: `CloudNative-urfu/dvarp`
 - Доска: https://github.com/orgs/CloudNative-urfu/projects/1
 
 ## Команда
@@ -31,7 +31,7 @@
 
 ## Главное правило: задача ↔ issue ↔ доска
 
-1. Каждая задача живёт как **issue** в `CloudNative-urfu/darp` и находится на доске.
+1. Каждая задача живёт как **issue** в `CloudNative-urfu/dvarp` и находится на доске.
 2. У issue **обязательно** есть исполнитель (assignee) из команды.
 3. Статус issue на доске отражает, где задача прямо сейчас.
 
@@ -77,7 +77,7 @@
 Создание issue и добавление на доску:
 
 ```bash
-issue_url=$(gh issue create -R CloudNative-urfu/darp \
+issue_url=$(gh issue create -R CloudNative-urfu/dvarp \
   --title "<краткий заголовок>" \
   --assignee <github-login-исполнителя> \
   --body "<описание задачи>")
@@ -86,7 +86,7 @@ PROJECT_ID=$(gh api graphql -f query='
   query { organization(login: "CloudNative-urfu") { projectV2(number: 1) { id } } }' \
   --jq '.data.organization.projectV2.id')
 
-ISSUE_ID=$(gh api repos/CloudNative-urfu/darp/issues/<N> --jq '.node_id')
+ISSUE_ID=$(gh api repos/CloudNative-urfu/dvarp/issues/<N> --jq '.node_id')
 
 ITEM_ID=$(gh api graphql -f query='
   mutation($project: ID!, $content: ID!) {

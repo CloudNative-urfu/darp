@@ -1,9 +1,9 @@
 # AGENTS.md — правила работы для ИИ-агентов
 
-Проект: **DARP (Defense, Attack Research Platform)** — исследовательский полигон для ИИ-агентов в
+Проект: **DVARP (Defense as Vector of Attack Research Platform)** — исследовательский полигон для ИИ-агентов в
 кибербезопасности. Полное описание — `README.md` и главный док `docs/guardrails-as-a-vector-of-attack.md`.
 
-Репозиторий: `CloudNative-urfu/darp`
+Репозиторий: `CloudNative-urfu/dvarp`
 Доска проекта: https://github.com/orgs/CloudNative-urfu/projects/1
 
 Этот файл обязателен к прочтению перед любой работой в репозитории.
@@ -15,7 +15,7 @@
 
 ## 1. Главное правило: issue ↔ доска
 
-Любая задача оформляется **issue** в репозитории `CloudNative-urfu/darp` и добавляется на доску.
+Любая задача оформляется **issue** в репозитории `CloudNative-urfu/dvarp` и добавляется на доску.
 
 Issue не может существовать вне доски. При создании issue агент в том же шаге ОБЯЗАН:
 
@@ -52,13 +52,13 @@ Issue не может существовать вне доски. При соз�
 ### 1. Проверить, нет ли уже issue
 
 ```bash
-gh issue list -R CloudNative-urfu/darp --state open --search "<ключевые слова>"
+gh issue list -R CloudNative-urfu/dvarp --state open --search "<ключевые слова>"
 ```
 
 ### 2. Создать issue + добавить на доску
 
 ```bash
-issue_url=$(gh issue create -R CloudNative-urfu/darp \
+issue_url=$(gh issue create -R CloudNative-urfu/dvarp \
   --title "<краткий заголовок>" \
   --body "<описание задачи>" \
   --assignee <github-login-исполнителя>)
@@ -67,7 +67,7 @@ PROJECT_ID=$(gh api graphql -f query='
   query { organization(login: "CloudNative-urfu") { projectV2(number: 1) { id } } }' \
   --jq '.data.organization.projectV2.id')
 
-ISSUE_ID=$(gh api repos/CloudNative-urfu/darp/issues/<N> --jq '.node_id')
+ISSUE_ID=$(gh api repos/CloudNative-urfu/dvarp/issues/<N> --jq '.node_id')
 
 ITEM_ID=$(gh api graphql -f query='
   mutation($project: ID!, $content: ID!) {
@@ -101,7 +101,7 @@ gh project item-edit --id "$ITEM_ID" --project-id "$PROJECT_ID" \
 
 ## Доска
 
-Issue добавляется на доску **DARP Board** (`projectV2(number: 1)`) и получает статус. Команды —
+Issue добавляется на доску **DVARP Board** (`projectV2(number: 1)`) и получает статус. Команды —
 см. раздел «Workflow агента» выше.
 
 Семантика поля `Status` (id `PVTSSF_lADOFDx2Cs4BmODnzhk37EQ`):
