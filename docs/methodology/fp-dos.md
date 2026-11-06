@@ -37,7 +37,7 @@ Verdict: Fully portable. Атака целиком разворачиваетс�
 ## Адаптация
 - В оригинале атакующий правит шаблон клиента; в полигоне доступен только текстовый канал FR-2.11 — suffix вставляется в атакуемое поле, склеиваемое в m = m_u ⊕ m_t: «In prompt injection scenarios, the attacker modifies the prompt template m_{t} using function g».
 - Poisoned-ветка противоречит замороженной защите (NFR-2.10) — переиспользовать как стресс-тест, что пайплайн не позволяет дообучать защиту; механика: «We implement attacks that maliciously fine-tune the LLM using poisoned dataset. Our focus is on crafting the poisoned data itself, while keeping the fine-tuning process and loss function unchanged».
-- Vicuna (safety-aligned; guardrail — сама модель) как вариант g_simple в бейзлайнах полигона.
+- Vicuna (safety-aligned; guardrail — сама модель) как простой вариант бейзлайна полигона.
 
 ## Непереносимо
 - Ветки ChatGPT/GPT-4o/GPT-3.5 (black-box, fine-tune API OpenAI) закрыты — вне NFR-2.4.

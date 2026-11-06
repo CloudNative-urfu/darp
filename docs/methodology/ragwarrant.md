@@ -28,7 +28,7 @@
 - Декларативный suite-контракт (candidate/baseline/сплиты/δ/hard gates/protected slices/evidence class) → FR-1.5, NFR-2.12; четырёх-исходная таксономия + append-only ledger с отрицательными исходами → FR-1.19.
 - Правило LCB(Δq) ≥ −δ ∧ UCB(Δc) < 0 — прямой аналог «не хуже по качеству (L*) при выигранном cost (C_guard/C_ep)» → FR-1.24, NFR-2.9; раздельные поля cost/latency/calls/context внутри одного решения → FR-1.17; адаптеры нормализации внешних метрик с provenance/hash → каркас сбора состояния из разнородных экспортов → FR-1.18.
 ## Адаптация
-- Evidence-классы + claim ceiling наложить на пять бейслайнов g0/g_proc/g_simple: каждому — evidence-класс и потолок утверждения → NFR-2.12.
+- Evidence-классы + claim ceiling наложить на бейслайны g0/g_proc: каждому — evidence-класс и потолок утверждения → NFR-2.12.
 - Fail-closed HotpotQA (операционный выигрыш при quality loss → BLOCK) — шаблон интерпретации R-vs-Q trade-off в двухстороннем контуре → FR-1.23: «The governed policy reduced retrieval cost, context volume, and calls, but answer quality declined beyond the declared noninferiority margin. A conventional efficiency report could describe the run as a cost win; RAGWarrant classified it as operational gain with quality loss and withheld promotion.»
 - Проверки nonconstant-signal/дубликатов перед CI → NFR-2.8; Docker-джоба + verify-run — механика заморозки defense-конфигурации и paired-запусков → NFR-2.8, NFR-2.4 (уже OSS).
 ## Непереносимо

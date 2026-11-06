@@ -27,7 +27,7 @@ Verdict: Fully portable. Это ближайший к нашему L* рецеп
 - Данные человеческих решений взяты «как записаны», виртуализация среды не нужна: «Each setting centers around a binary decision for which we have real data on human preference.»
 ## Прямой перенос
 - τ* = 1 − c_ℓ/c_w как формальная формулировка L* и правило эскалации через ожидаемые издержки → FR-1.24, NFR-2.9 (прямо в polygon pipeline); протокол двухходовки «предскажи → реши Act/Escalate» — дешёвая фиксация refused/ignored → FR-1.19.
-- Signal-инъекция «дерево решений: split + accuracy» — управляемый градиент качества для sweep L* → FR-1.23; no-signal-маппинг на signal-кривую → estimator FR-1.18; implicit threshold p* — скейл-агностик baseline для g0/g_proc/g_simple → NFR-2.12.
+- Signal-инъекция «дерево решений: split + accuracy» — управляемый градиент качества для sweep L* → FR-1.23; no-signal-маппинг на signal-кривую → estimator FR-1.18; implicit threshold p* — скейл-агностик baseline для g0/g_proc → NFR-2.12.
 ## Адаптация
 - c_ℓ/c_w безразмерны → привязать к нашему money journal (c_ℓ = C_очередь, c_w = C_break) и выразить L* в тех же единицах → FR-1.17.
 - 4 датасета человеческих решений → эмуляции g0/g_proc на нашем legit/атакерском traffic → FR-1.20, NFR-2.11; SFT с CoT-целью = наш «frozen defense», обучаемый вне периода оценки → NFR-2.10; объём 250/условие и SE масштабируем под polygon confidence + seeds → NFR-2.8.
